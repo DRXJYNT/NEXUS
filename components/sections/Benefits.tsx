@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Briefcase, Users, Zap, Award, Globe } from 'lucide-react';
+import { Code, Briefcase, Users, Zap, Award, Globe, Bot, Terminal } from 'lucide-react';
 import SectionContainer from '../ui/SectionContainer';
 import { motion } from 'framer-motion';
 
@@ -34,11 +34,21 @@ const Benefits: React.FC = () => {
       icon: <Globe />,
       title: "Remote Work Protocols",
       desc: "How to land high-paying remote roles straight out of college."
+    },
+    {
+      icon: <Bot />,
+      title: "AI Workflow Mastery",
+      desc: "Integrate AI tools to 10x your coding speed and operational efficiency."
+    },
+    {
+      icon: <Terminal />,
+      title: "Prompt Engineering",
+      desc: "Master the art of communicating with LLMs to solve complex problems faster."
     }
   ];
 
   return (
-    <SectionContainer className="relative">
+    <SectionContainer id="benefits" className="relative">
        {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/10 rounded-full blur-[120px] z-0"></div>
 
@@ -53,10 +63,10 @@ const Benefits: React.FC = () => {
         {benefits.map((benefit, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+            initial={{ opacity: 0, y: 50, rotateX: 10 }}
+            whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ delay: index * 0.05, type: "spring", stiffness: 300, damping: 20 }}
             className="group p-6 rounded-xl border border-white/5 bg-slate-900/50 hover:bg-slate-800/50 transition-colors duration-300 relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

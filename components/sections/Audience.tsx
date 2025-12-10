@@ -35,7 +35,7 @@ const Audience: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {personas.map((persona, index) => (
-          <GlassCard key={index} className="flex flex-col items-center text-center group">
+          <GlassCard key={index} delay={index * 0.1} className="flex flex-col items-center text-center group">
             <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-white/10 shadow-[0_0_15px_rgba(255,255,255,0.05)]">
               {persona.icon}
             </div>

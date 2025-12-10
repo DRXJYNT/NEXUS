@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Check, ShieldCheck } from 'lucide-react';
 import SectionContainer from '../ui/SectionContainer';
 import NeonButton from '../ui/NeonButton';
@@ -14,7 +15,13 @@ const Pricing: React.FC = () => {
            <p className="text-slate-400">One investment. Infinite ROI.</p>
         </div>
 
-        <div className="relative bg-slate-900/80 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-8 md:p-12 overflow-hidden neon-box-purple">
+        <motion.div 
+          initial={{ opacity: 0, y: 100, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ type: "spring", duration: 0.8 }}
+          className="relative bg-slate-900/80 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-8 md:p-12 overflow-hidden neon-box-purple"
+        >
             <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-purple-500 via-cyan-400 to-purple-500"></div>
             
             <div className="flex flex-col md:flex-row gap-12 items-center">
@@ -59,7 +66,7 @@ const Pricing: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
       </div>
     </SectionContainer>
   );

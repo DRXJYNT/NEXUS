@@ -17,7 +17,7 @@ const WhyWorks: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="col-span-1 md:col-span-2 flex flex-col justify-center">
-             <GlassCard className="h-full flex flex-col justify-center border-purple-500/30">
+             <GlassCard delay={0} className="h-full flex flex-col justify-center border-purple-500/30">
                 <h3 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white font-orbitron mb-2">
                     87%
                 </h3>
@@ -29,14 +29,14 @@ const WhyWorks: React.FC = () => {
         </div>
         
         <div className="col-span-1 md:col-span-2 grid grid-rows-2 gap-8">
-             <GlassCard className="flex items-center gap-6 border-cyan-500/30">
+             <GlassCard delay={0.2} className="flex items-center gap-6 border-cyan-500/30">
                 <div className="text-4xl font-bold text-cyan-400 font-orbitron">$92k</div>
                 <div>
                     <div className="text-white font-bold uppercase tracking-wide text-sm">Avg Starting Salary</div>
                     <div className="text-slate-500 text-xs">For 2023 Cohort Graduates</div>
                 </div>
              </GlassCard>
-             <GlassCard className="flex items-center gap-6 border-white/10">
+             <GlassCard delay={0.3} className="flex items-center gap-6 border-white/10">
                 <div className="text-4xl font-bold text-slate-200 font-orbitron">3.5x</div>
                 <div>
                     <div className="text-white font-bold uppercase tracking-wide text-sm">Interview ROI</div>
@@ -56,9 +56,10 @@ const WhyWorks: React.FC = () => {
               ].map((item, idx) => (
                   <motion.div 
                     key={idx}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: idx * 0.2 }}
+                    initial={{ opacity: 0, y: 50, scale: 0.8 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ delay: idx * 0.2, type: "spring" }}
                     className="bg-slate-950 p-6 rounded-xl border border-white/10 relative"
                   >
                       <div className="w-12 h-12 mx-auto bg-slate-900 rounded-full border border-purple-500 flex items-center justify-center text-white font-bold mb-4 shadow-[0_0_15px_rgba(168,85,247,0.4)] relative z-10">

@@ -31,7 +31,7 @@ const FAQ: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <SectionContainer className="bg-slate-950">
+    <SectionContainer id="faq" className="bg-slate-950">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-white font-orbitron mb-12">
           System <span className="text-cyan-400">Queries</span>
@@ -39,7 +39,14 @@ const FAQ: React.FC = () => {
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-white/10 last:border-0">
+            <motion.div 
+              key={index} 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false }}
+              transition={{ delay: index * 0.1 }}
+              className="border-b border-white/10 last:border-0"
+            >
               <button
                 onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                 className="w-full flex items-center justify-between py-6 text-left group"
@@ -65,7 +72,7 @@ const FAQ: React.FC = () => {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

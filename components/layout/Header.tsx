@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         </div>
 
         <nav className="hidden md:flex gap-8 items-center">
-          {['Benefits', 'Modules', 'Reviews', 'FAQ'].map((item) => (
+          {['Benefits', 'Reviews', 'FAQ'].map((item) => (
             <button 
               key={item}
               onClick={() => document.getElementById(item.toLowerCase())?.scrollIntoView({ behavior: 'smooth' })}

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
-import SectionContainer from '../ui/SectionContainer';
 import { Testimonial } from '../../types';
 
 const testimonials: Testimonial[] = [
@@ -49,7 +48,7 @@ const testimonials: Testimonial[] = [
 
 const Testimonials: React.FC = () => {
   return (
-    <div className="py-24 bg-slate-950 overflow-hidden relative border-y border-white/5">
+    <div id="reviews" className="py-24 bg-slate-950 overflow-hidden relative border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
          <h2 className="text-3xl font-bold text-white font-orbitron">Decoded <span className="text-purple-400">Success Stories</span></h2>
       </div>

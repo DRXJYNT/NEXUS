@@ -80,10 +80,13 @@ const Modules: React.FC = () => {
 
         {/* Right Side: Accordion */}
         <div className="md:w-2/3 flex flex-col gap-4">
-          {modules.map((module) => (
+          {modules.map((module, i) => (
             <motion.div
               key={module.id}
-              initial={false}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
               className={`border rounded-xl overflow-hidden transition-colors duration-300 ${
                 activeModule === module.id 
                   ? 'bg-white/5 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.1)]' 

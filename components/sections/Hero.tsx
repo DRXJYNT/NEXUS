@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import NeonButton from '../ui/NeonButton';
+import BenefitsModal from '../ui/BenefitsModal';
 
 const Hero: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Animated Background Elements */}
@@ -28,7 +31,11 @@ const Hero: React.FC = () => {
         
         {/* Grid Overlay */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+        <motion.div 
+          animate={{ backgroundPosition: ["0px 0px", "0px 64px"] }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 4 }}
+          className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"
+        ></motion.div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
@@ -74,8 +81,8 @@ const Hero: React.FC = () => {
           <NeonButton onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
             Access The Blueprint <ArrowRight className="w-4 h-4" />
           </NeonButton>
-          <NeonButton variant="secondary" onClick={() => document.getElementById('modules')?.scrollIntoView({ behavior: 'smooth' })}>
-            View Syllabus
+          <NeonButton variant="secondary" onClick={() => setIsModalOpen(true)}>
+            Course Benefits
           </NeonButton>
         </motion.div>
 
@@ -103,6 +110,8 @@ const Hero: React.FC = () => {
       >
         <ChevronDown className="w-8 h-8" />
       </motion.div>
+
+      <BenefitsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };
